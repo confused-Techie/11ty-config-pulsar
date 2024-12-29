@@ -26,7 +26,7 @@ module.exports = (eleventyConfig) => {
 };
 ```
 
-### Recommended Layout
+## Recommended Layout
 
 Below is the recommended layout of any Pulsar repository that is using `11ty`.
 This layout is recommended to ensure ease of switching between repos for contributors,
@@ -47,7 +47,7 @@ and in some instances the options and behavior of this module expect/rely on it.
     * `/docs/main.less`: A LESS stylesheet that's used to import styles from `/less`.
     * `/docs/main.js`: The websites JavaScript file.
 
-### Options:
+## Options:
 
 All options are enabled by default.
 
