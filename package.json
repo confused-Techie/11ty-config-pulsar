@@ -1,0 +1,22 @@
+{
+  "name": "11ty-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "author": "confused-Techie",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy-plugin-ejs": "^1.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@mdit/plugin-tab": "^0.8.0",
+    "clean-css": "^5.3.3",
+    "less": "^4.2.1",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-attrs": "^4.3.1",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-include": "^2.0.0",
+    "markdown-it-kbd": "^2.2.2",
+    "terser": "^5.37.0"
+  }
+}
