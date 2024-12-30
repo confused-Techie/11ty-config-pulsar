@@ -165,4 +165,30 @@ Requires the following variables to be in your data cascade:
 
 Also expects that the sitemap will be used.
 
-WARNING: Expect this option to change to allow greater customization.
+But can be further customized with `robotsConf` option.
+
+#### `robotsConf`
+
+This option controls what data is generated within the `robots.txt` if it is enabled by `addRobots`.
+It will take a configuration object with the following top level properties:
+* `sitemap`: A boolean to add the sitemap or exclude it. Requires `default.url` to be in your data cascade.
+* `entries`: An array of objects that consist of each entry for a certain user-agent. Within each object:
+  - `useragents`: An array of user-agents for this entry.
+  - `allow_urls`: An optional array of URLs to allow under this user-agent.
+  - `disallow_urls`: An optional array of URLs to disallow under this user-agent.
+
+This configuration by default is:
+
+```js
+const robots = {
+  sitemap: true,
+  entries: [
+    {
+      useragents: [ "*" ],
+      allow_urls: [ "/" ]
+    }
+  ]
+};
+```
+
+If you provide your own, you will **override** the default, so must convey all data that should be included.

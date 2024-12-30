@@ -2,6 +2,17 @@
 permalink: /robots.txt
 eleventyExcludeFromCollections: true
 ---
+{% if robots.sitemap -%}
 Sitemap: {{ default.url }}/sitemap.xml
-User-agent: *
-Allow: /
+{%- endif %}
+{% for item in robots.entries -%}
+{% for agent in item.useragents -%}
+User-agent: {{ agent }}
+{%- endfor %}
+{% for url in item.allow_urls -%}
+Allow: {{ url }}
+{%- endfor %}
+{% for url in item.disallow_urls -%}
+Disallow: {{ url }}
+{%- endfor %}
+{%- endfor %}

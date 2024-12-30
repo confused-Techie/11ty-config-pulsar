@@ -14,7 +14,11 @@ const DEFAULT_OPTS = {
   staticCnameCopy: true,
   defaultWatchers: true,
   addSitemap: true,
-  addRobots: true
+  addRobots: true,
+  robotsConf: {
+    sitemap: true,
+    entries: [ { useragents: [ "*" ], allow_urls: [ "/" ] } ]
+  }
 };
 
 module.exports =
@@ -23,6 +27,7 @@ function config(eleventyConfig, givenOpts = {}) {
     ...DEFAULT_OPTS,
     ...givenOpts
   };
+  console.log(opts);
 
   if (opts.disableDomDiff) {
     // Prevent the server from trying to do a clever hot-reload when only
@@ -77,7 +82,13 @@ function config(eleventyConfig, givenOpts = {}) {
   }
 
   if (opts.addRobots) {
-    eleventyConfig.addTemplate("robots.njk", fs.readFileSync(path.join(__dirname, "../templates/robots.njk"), { encoding: "utf8" }));
+    eleventyConfig.addTemplate(
+      "robots.njk",
+      fs.readFileSync(path.join(__dirname, "../templates/robots.njk"), { encoding: "utf8" }),
+      {
+        robots: opts.robotsConf
+      }
+    );
   }
 
   return;
